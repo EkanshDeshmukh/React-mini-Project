@@ -1,8 +1,27 @@
-import React from 'react'
+import axios from '../utils/axios';
+import React, { createContext, useEffect, useState } from 'react'
 
-const Context = () => {
+export const ProductContext = createContext()
+const Context = (props) => {
+  const [products, setProducts] = useState(null)
+
+  const getProducts = async () => {
+    try {
+      const { data } = await axios('/products')
+      setProducts(data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    getProducts()
+  }, [])
   return (
-    <div>Context</div>
+    <>
+      <ProductContext.Provider value={{ products, setProducts }}>
+        {props.children}
+      </ProductContext.Provider>
+    </>
   )
 }
 
