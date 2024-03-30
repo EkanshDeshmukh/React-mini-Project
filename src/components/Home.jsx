@@ -14,7 +14,7 @@ const Home = () => {
             <Nav />
             <div className='w-[85%] h-full flex justify-center flex-wrap overflow-x-hidden overflow-y-auto p-10'>
                 {products.map((product) => (
-                    < Link to='/details/1' className='w-64 h-80 border justify-center items-center flex-col mr-3 mb-3 shadow rounded'>
+                    < Link key={product.id} to={`/details/${product.id}`} className='w-64 h-80 border justify-center items-center flex-col mr-3 mb-3 shadow rounded'>
                         <div style={{ backgroundImage: `url(${product.image})` }}
                             className='w-full cursor-pointer mb-5 h-3/4 bg-contain bg-no-repeat hover:scale-105 bg-center'>
                         </div>
