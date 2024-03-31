@@ -23,13 +23,13 @@ const Details = () => {
 
     return product ? (
 
-        <div className='w-[70%] flex h-full p-[10%] m-auto justify-between'>
-            <img className='object-contain h-[50%]' src={`${product.image}`} alt="" />
-            <div className='content'>
-                <h1 className='text-4xl'>{product.title}</h1>
-                <h3>$ {product.price}</h3>
-                <p>Y{product.description}</p>
-                <h3>{product.category}</h3>
+        <div className='w-[70%]  flex items-center gap-10 h-full p-[10%] m-auto justify-between'>
+            <img className='object-contain   h-[60%]' src={`${product.image}`} alt="" />
+            <div className='content ml-10'>
+                <h1 className='text-4xl mt-10' >{product.title}</h1>
+                <h3 className='mt-5 mb-3 text-red-400 text-xl'>$ {product.price}</h3>
+                <p className='mb-3 text-base'>{product.description}</p>
+                <h3 className='text-2xl text-blue-500'>{product.category}</h3>
                   
 
             </div>
