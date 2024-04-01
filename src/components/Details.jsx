@@ -30,7 +30,7 @@ const Details = () => {
                 <h3 className='mt-5 mb-3 text-red-400 text-xl'>$ {product.price}</h3>
                 <p className='mb-3 text-base'>{product.description}</p>
                 <h3 className='text-2xl text-blue-500'>{product.category}</h3>
-                  
+
 
             </div>
         </div>
