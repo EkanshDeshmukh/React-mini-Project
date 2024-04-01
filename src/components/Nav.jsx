@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { ProductContext } from '../utils/Context';
+
 
 const Nav = () => {
+
+  const { products } = useContext(ProductContext)
+  let distinct_category = products.reduce((acc, cv) => [...acc, cv.category], [])
+  distinct_category = [...new Set(distinct_category)]
+  console.log(distinct_category);
+
   return (
     <div className='w-[15%] h-full'>
       <nav className='h-screen w-full bg-zinc-50 flex flex-col items-center py-10 '>
