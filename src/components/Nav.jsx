@@ -20,9 +20,9 @@ const Nav = () => {
         <hr className='w-3/4 my-3' />
         <h1 className='text-xl ml-8 mb-3 w-3/4 '>Category Filter</h1>
         {distinct_category.map((p, i) => (
-          <Link className='font-semibold mb-3 flex items-center' key={i} to={`/?category=${p}`}>
+          <Link className='font-semibold mb-3 text-left flex  items-center' key={i} to={`/?category=${p}`}>
             <span style={{ backgroundColor: color() }}
-              className='rounded-full w-3 h-3 mr-3'></span> {' '}
+              className='rounded-full  text-center w-3 h-3 mr-3'></span> {' '}
             {p}
           </Link>
         ))}

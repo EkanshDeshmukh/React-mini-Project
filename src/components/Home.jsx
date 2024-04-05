@@ -1,13 +1,23 @@
 import React, { useContext } from 'react';
 import Nav from './Nav'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { ProductContext } from '../utils/Context'
 import Loading from '../components/Loading'
+import axios from '../utils/axios';
 
 
 const Home = () => {
     const { products } = useContext(ProductContext)
+    const { search } = useLocation()
+    const category = decodeURIComponent(search.split('=')[1])
 
+    const getProductCategory = async () => {
+        try {
+            const { data } = await axios(`/products/category/${category}`)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return products ? (
         <>
