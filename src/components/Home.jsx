@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Nav from './Nav'
 import { Link, useLocation } from 'react-router-dom'
 import { ProductContext } from '../utils/Context'
@@ -11,13 +11,23 @@ const Home = () => {
     const { search } = useLocation()
     const category = decodeURIComponent(search.split('=')[1])
 
+    const [filterProducts, setfilterProducts] = useState(null)
+
     const getProductCategory = async () => {
         try {
             const { data } = await axios(`/products/category/${category}`)
+            setfilterProducts(data)
         } catch (error) {
             console.log(error);
         }
     }
+
+    useEffect(() => {
+        if (!filterProducts) setfilterProducts(products)
+        if(category != "undefined") getProductCategory();
+    }, [category,products]);
+
+    console.log(filterProducts);
 
     return products ? (
         <>
